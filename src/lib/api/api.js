@@ -7,8 +7,8 @@ import storage from '$lib/stores/storage';
 // Create a instance of axios to use the same base url.
 const axiosAPI = axios.create({
 	// baseURL: BASE_URL
-	// baseURL: 'https://knowyourhizb-production.up.railway.app' // it's not recommended to have this info here.
-	baseURL: 'http://localhost:3000/'
+	baseURL: 'https://wikkys-production.up.railway.app/' // it's not recommended to have this info here.
+	// baseURL: 'http://localhost:3000/'
 });
 
 // let csrfToken;

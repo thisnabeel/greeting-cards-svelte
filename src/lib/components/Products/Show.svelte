@@ -70,15 +70,20 @@
 
     </div>
 
-  <hr>
+
+    {#if product.customizations && product.customizations.length > 0}
+    <hr>
+      <p class="requests-label text-center" style="font-weight: bold">Customizations (optional):</p>
+      {#each product.customizations as customization}
+        <Customization {customization}></Customization>
+      {/each}
+
+    {/if}
+
+    <hr>
 
 	<h1 class="usd-cost">$<span class="total-cost">{total}</span></h1>
 
-  <p class="requests-label">Customizations (optional):</p>
-  {#each product.customizations as customization}
-    <Customization {customization}></Customization>
-  {/each}
-  <br>
 
   <input type="hidden" name="stripeToken" id="stripeToken">
   <input type="hidden" name="stripeEmail" id="stripeEmail">

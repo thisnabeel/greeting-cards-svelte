@@ -1,5 +1,5 @@
 <script>
-	import ShopFront from "$lib/Components/ShopFront/Index.svelte"
+	import ShopFront from "$lib/components/ShopFront/Index.svelte"
 </script>
 
 <svelte:head>

@@ -57,8 +57,14 @@
 }
 
 .product img {
-    max-width: 300px !important;
+        max-width: 100% !important;
 }
+
+	@media screen and (max-width: 600px) {
+		.left-div, .right-div {
+            display: block;
+        } 
+	}
 /* @media screen and (max-width: 600px)
 .left-div, .right-div {
     max-width: 100%;

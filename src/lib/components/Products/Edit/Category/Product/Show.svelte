@@ -6,6 +6,8 @@
     import debounce  from 'lodash/debounce';
     import Api from "$lib/api/api.js";
     import Formulas from "./Formulas/Index.svelte";
+    
+    import AddOns from "./AddOns/Index.svelte";
 
     let expanded = false;
 
@@ -41,6 +43,7 @@
         <section class="expanded">
             <div class="expand-nav">
                 <div class:active-tab="{tab === "details"}" on:click={() => tab = "details"}>Details</div>
+                <div class:active-tab="{tab === "addOns"}" on:click={() => tab = "addOns"}>AddOns</div>
                 <div class:active-tab="{tab === "formulas"}" on:click={() => tab = "formulas"}>Formulas</div>
             </div>
 
@@ -53,9 +56,15 @@
                 {/each}
             {/if}
 
+            {#if tab === "addOns"}
+                <AddOns {product}/>
+            {/if}
+
             {#if tab === "formulas"}
                 <Formulas {product}/>
             {/if}
+
+            
 
 
             <div class="btn btn-outline-danger pull-right" on:click={() => {

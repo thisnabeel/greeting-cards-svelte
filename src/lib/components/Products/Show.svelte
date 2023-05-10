@@ -1,7 +1,7 @@
 <script>
     import storage from '$lib/stores/storage';
     import { cart } from "$lib/stores/cart"    
-
+    import Customization from "./Customization/Show.svelte";
     
     export let product;
 
@@ -47,7 +47,11 @@
 <img src="{product.image_url}" class="img-responsive" alt="">
 
 <h1 class="product-title">
-	{product.title}
+  {product.title.split("(")[0]}
+  {#if product.title.split("(")[1]}
+      <br>
+      ({product.title.split("(")[1]}
+  {/if}
 </h1>
 
 <form action="/charges" accept-charset="UTF-8" method="post">
@@ -70,8 +74,10 @@
 
 	<h1 class="usd-cost">$<span class="total-cost">{total}</span></h1>
 
-  <p class="requests-label">Requests (optional):</p>
-  <textarea name="requests" class="form-control"></textarea>
+  <p class="requests-label">Customizations (optional):</p>
+  {#each product.customizations as customization}
+    <Customization {customization}></Customization>
+  {/each}
   <br>
 
   <input type="hidden" name="stripeToken" id="stripeToken">

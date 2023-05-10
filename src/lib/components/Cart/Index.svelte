@@ -46,7 +46,7 @@
     }
 </script>
 
-<MediaQuery query="(min-width: 400px)" let:matches>
+<MediaQuery query="(min-width: 450px)" let:matches>
 	{#if matches}
         <div class="corner">
             <Corner {checkout}></Corner>

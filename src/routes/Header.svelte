@@ -14,10 +14,10 @@
 		margin: 0 auto;
 
 	}
-.logo-container img {
-  display: inline-block;
-  vertical-align: middle;
-  max-width: 200px;
-  max-height: 150px;
-}
+	.logo-container img {
+display: inline-block;
+    vertical-align: middle;
+    max-width: 158px;
+    max-height: 130px;
+	}
 </style>

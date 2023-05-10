@@ -1,5 +1,6 @@
 <script>
     import { cart } from "$lib/stores/cart"    
+    import CartList from "./CartList/Index.svelte"
     export let checkout;
 
     function handleCheckout() {
@@ -33,40 +34,27 @@ let showCart = false;
 
 <aside class="cart">
     <section class="cart-button toggle-cart" on:click={() => showCart = !showCart}>
-        <div class="inner-cart-btn">
-        <span class="fa fa-shopping-cart"></span> $<span class="cart-cost">{total}</span>
+        <div class="content" style="vertical-align: bottom;">
+
+            <div class="inner-cart-btn">
+            <span class="fa fa-shopping-cart"></span> $<span class="cart-cost">{total}</span>
+        </div>
         </div>
     </section>
         <div class="cart-view" class:hidden={!showCart}>
-            <h1><div on:click={() => showCart = !showCart} class="fa fa-arrow-left toggle-cart"></div> Cart: 
-                <div class="btn btn-primary checkout collect-phone" on:click={handleCheckout} data-total="0">Pay $<span class="cart-cost">0</span> <i class="fa fa-arrow-right"></i></div>
-            </h1>
+            <div class="flex">
+                <div>
+                    <h1  on:click={() => showCart = !showCart}  class="go-back"><div class="fa fa-arrow-left toggle-cart"></div> Back</h1>
+                </div>
+                <div>
+                <div class="btn btn-primary checkout go-checkout collect-phone" on:click={handleCheckout} data-total="0">Pay $<span class="cart-cost">{total}</span> <i class="fa fa-arrow-right"></i></div>
+                </div>
+            </div>
+
+            <br>
+            <h1>Cart:</h1>
             <ul class="cart-list">
-                {#each $cart || [] as line}
-                <li>
-                    <span class="fa fa-remove remove-cp cp-remove" data-index="0"  on:click={() => remove(line)}></span>
-                    
-                    <div class="cph">
-                        <div class="cp-head">
-                            <span class="cp-cost">
-                                ${line.price} <i class="fa fa-arrow-right"></i>
-                            </span>
-                            <span class="cp-quantity">
-                                {line.quantity}x
-                            </span>
-                            <span class="cp-title">
-                                {line.product.title}
-                            </span>
-                        </div>
-
-                    </div>
-
-
-                    <span class="cp-requests" count="0">
-                        
-                    </span>
-                </li>
-                {/each}
+                <CartList cart={$cart} {remove}></CartList>
             </ul>
             
         </div>
@@ -84,8 +72,9 @@ let showCart = false;
 
 .cart-button {
     width: 100%;
-    height: 8vh;
+    height: 11vh;
     font-size: 8px;
+    bottom: 0;
     /* margin-bottom: 69px; */
 }
 
@@ -103,6 +92,13 @@ let showCart = false;
     color: #fff;
 }
 
+.content {
+        background: #8E2DE2;
+    background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);
+    background: linear-gradient(to right, #4A00E0, #8E2DE2);
+        height: 100%;
+}
+
 .cart-view {
     position: fixed;
     top: 0;
@@ -112,21 +108,8 @@ let showCart = false;
     height: 100vh;
 }
 
-.cart-view h1 {
-    font-size: 2em;
-    padding: 0.3em;
-    text-align: left;
-    
-}
-
-.checkout {
-    position: relative;
-    left: 20px;
-    top: 18px;
-    float: right;
-    font-size: 52px;
-    padding: 30px;
-    border-radius: 20px;
+.cph {
+    display: inline-block;
 }
 
 .cart-list {
@@ -137,30 +120,31 @@ let showCart = false;
     margin: 0;
 
     padding: 0 1em;
+
+        font-size: 24px;
     
 }
 
-
-.checkout {
-    position: relative;
-    left: 20px;
-    top: 18px;
-    float: right;
-    font-size: 52px;
-    padding: 30px;
-    border-radius: 20px;
+.flex {
+    display: flex;
+}
+.flex > div {
+    flex: 1 1 50%;
 }
 
-.checkout .btn {
-        position: relative;
-    left: 6px;
-    top: 5px;
-    float: right;
-    font-size: 26px;
-    padding: 18px;
-    border-radius: 20px;
+.go-checkout {
+        display: block;
+    width: 100%;
+    padding: 10px;
+    /* height: 100%; */
+    text-align: center;
+    vertical-align: middle;
+    font-size: 27px;
 }
 
-
-
+.go-back {
+text-align: left;
+    padding: 4px;
+    padding-left: 10px;
+}
 </style>

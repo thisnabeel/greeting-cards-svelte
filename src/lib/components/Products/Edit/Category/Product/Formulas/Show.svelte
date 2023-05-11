@@ -4,6 +4,7 @@
     import Api from "$lib/api/api.js";
     export let formula;
     export let remove;
+    export let duplicate;
 
     let expand = false;
 
@@ -58,12 +59,13 @@
 
                 <div class="flex">
                     <div>
-                        <h1>${estimate}</h1>
+                        <h1>${(Math.round((estimate) * 100) / 100)}</h1>
                     </div>
                     <div class="start">
                         <i class="fa fa-expand" on:click={() => expand = !expand}></i>
                         <input type="text" class="form-control" bind:value={formula.title} on:change={save}>
                         <i class="fa fa-remove" on:click={remove}></i>
+                        <i class="fa fa-copy" on:click={duplicate}></i>
                     </div>
                 </div>
 

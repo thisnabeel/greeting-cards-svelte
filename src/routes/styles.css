@@ -1,5 +1,6 @@
 @import '@fontsource/fira-mono';
 @import url(https://fonts.googleapis.com/css?family=Work+Sans:400,600,700|Oswald:400,700|Montserrat:400,700);
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
 
 
 .hidden {
@@ -111,4 +112,14 @@ button:focus:not(:focus-visible) {
 	position: absolute;
 	width: 1px;
 	white-space: nowrap;
+}
+
+.cursive-font {
+	font-family: 'Cedarville Cursive', cursive;
+}
+
+.bbh-bogle-regular {
+	font-family: "BBH Bogle", sans-serif;
+	font-weight: 400;
+	font-style: normal;
 }

@@ -3,21 +3,32 @@
 
 <div class="logo-container">
 	<a href="/">
-		<img src="/wikkys-logo.png" class="wikkys" alt="Logo 1">
-		<img src="/umm-sukkar-logo.png" class="umm-sukkar" alt="Logo 2">
+		<img src="/logo.png" alt="LamhaPaperCo Logo">
 	</a>
 </div>
 
 <style>
 	.logo-container {
-		display: inline;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		margin: 0 auto;
-
+		padding: 30px;
+		padding-bottom: 10px;
 	}
 	.logo-container img {
-display: inline-block;
-    vertical-align: middle;
-    max-width: 158px;
-    max-height: 130px;
+		max-width: 300px;
+		max-height: auto;
+		display: block;
+	}
+
+	@media screen and (max-width: 768px) {
+		.logo-container {
+			padding: 15px;
+			padding-bottom: 10px;
+		}
+		.logo-container img {
+			max-width: 200px;
+		}
 	}
 </style>

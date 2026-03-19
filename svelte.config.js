@@ -7,7 +7,8 @@ const config = {
 		// runtime must be set to avoid build-time Node version inference.
 		adapter: adapter({
 			// Prevent @sveltejs/adapter-vercel from trying to infer the runtime from Node during build.
-			runtime: 'nodejs18.x'
+			// Vercel no longer supports nodejs18.x for new deployments.
+			runtime: 'nodejs24.x'
 		})
 	}
 };

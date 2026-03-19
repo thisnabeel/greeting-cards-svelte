@@ -8,6 +8,7 @@
     import Formulas from "./Formulas/Index.svelte";
     
     import AddOns from "./AddOns/Index.svelte";
+    import CardStudio from "./CardStudio/Index.svelte";
 
     let expanded = false;
 
@@ -45,6 +46,7 @@
                 <div class:active-tab="{tab === "details"}" on:click={() => tab = "details"}>Details</div>
                 <div class:active-tab="{tab === "addOns"}" on:click={() => tab = "addOns"}>AddOns</div>
                 <div class:active-tab="{tab === "formulas"}" on:click={() => tab = "formulas"}>Formulas</div>
+                <div class:active-tab="{tab === "cardStudio"}" on:click={() => tab = "cardStudio"}>Card Studio</div>
             </div>
 
             {#if tab === "details"}
@@ -62,6 +64,10 @@
 
             {#if tab === "formulas"}
                 <Formulas {product}/>
+            {/if}
+
+            {#if tab === "cardStudio"}
+                <CardStudio {product}/>
             {/if}
 
             

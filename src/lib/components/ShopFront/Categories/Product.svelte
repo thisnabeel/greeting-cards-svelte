@@ -7,7 +7,7 @@
                             <div class="thumbnail">
                                 <div class="img-wrapper">
                                 <a href="/products/{product.id}">
-                                        <img src="{product.image_url}" alt="">
+                                        <img src="{product.greeting_card?.front_image_url || product.image_url}" alt="">
                                     </a>
                                 </div>
                                 <section class="bottom-card">

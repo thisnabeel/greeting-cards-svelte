@@ -3,7 +3,7 @@
 </script>
 
 <section class="shopfront">
-	<h3 class="cursive-font">Artisan Greeting Cards & Gifts</h3>
+	<h3 class="cursive-font">a design studio</h3>
 
 	<h1 class="green-text">Rooted in Muslim cultures.<br /> Crafted with intention.</h1>
 

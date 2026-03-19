@@ -4,13 +4,6 @@
     import { debounce } from 'lodash';
     export let category;
     export let categories;
-    export let onDragStart = () => {};
-    export let onDragOver = () => {};
-    export let onDragLeave = () => {};
-    export let onDrop = () => {};
-    export let onDragEnd = () => {};
-    export let isDragging = false;
-    export let isDragOver = false;
     let makingNew = false;
     let newProductTitle;
     let editingTitle = false;
@@ -73,15 +66,7 @@
     }
 </script>
 <li 
-    class="category" 
-    class:dragging={isDragging}
-    class:drag-over={isDragOver}
-    draggable="true"
-    on:dragstart={onDragStart}
-    on:dragover={onDragOver}
-    on:dragleave={onDragLeave}
-    on:drop={onDrop}
-    on:dragend={onDragEnd}
+    class="category"
 >
     {#if editingTitle}
         <input 
@@ -155,18 +140,8 @@
 }
 
 .category {
-    cursor: move;
     user-select: none;
-    transition: opacity 0.2s, background-color 0.2s;
-}
-
-.category.dragging {
-    opacity: 0.5;
-}
-
-.category.drag-over {
-    background-color: #e3f2fd;
-    border-top: 2px solid #2196f3;
+    transition: background-color 0.2s;
 }
 
 .new-product {

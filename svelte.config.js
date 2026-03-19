@@ -1,12 +1,14 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-vercel';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
-		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
-		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
-		adapter: adapter()
+		// Deploy to Vercel as serverless functions.
+		// runtime must be set to avoid build-time Node version inference.
+		adapter: adapter({
+			// Prevent @sveltejs/adapter-vercel from trying to infer the runtime from Node during build.
+			runtime: 'nodejs18.x'
+		})
 	}
 };
 
